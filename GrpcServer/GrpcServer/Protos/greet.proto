@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+package greet;
+
+// The greeting service definition.
+service Greeter {
+  rpc CalculateTax (PriceDetailsRequest) returns (PriceDetailsResponse);
+}
+
+// public HellpReply SayHello(HelloRequest request)
+
+message PriceDetailsRequest {
+	double salePrice = 1;
+	Country countryName = 3;
+}
+
+message PriceDetailsResponse{
+	double taxAmount = 1;
+	double totalAmount = 2;
+}
+// enum values should start from zero
+enum Country{
+	India = 0;
+	Netherlands = 1;
+}
